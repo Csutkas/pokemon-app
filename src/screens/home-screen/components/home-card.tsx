@@ -9,19 +9,27 @@ type CardProps = {
   onPress: () => void;
   title: string;
   onCatch: ({id}: CatchProps) => void;
+  onRelease: ({id}: CatchProps) => void;
+  isCaught: boolean;
 };
 
 export const Card = memo(
-  ({title, onPress, onCatch}: CardProps): JSX.Element => {
+  ({title, onPress, onCatch, onRelease, isCaught}: CardProps): JSX.Element => {
     return (
       <View style={styles.cardContainer}>
         <Pressable onPress={onPress} style={styles.elementContainer}>
           <Text style={styles.cardLabelText}>{title}</Text>
+          <Text style={styles.cardLabelText}>{isCaught ? 'Catched' : '-'}</Text>
         </Pressable>
-        <CommonSpacer multiplier={2} />
 
-        <Pressable onPress={() => onCatch({id: title})}>
-          <Text style={styles.cardLabelText}>Catch</Text>
+        <CommonSpacer multiplier={2} />
+        <Pressable
+          onPress={() =>
+            isCaught ? onRelease({id: title}) : onCatch({id: title})
+          }>
+          <Text style={styles.cardLabelText}>
+            {isCaught ? 'Release' : 'Catch'}
+          </Text>
         </Pressable>
       </View>
     );

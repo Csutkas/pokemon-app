@@ -9,7 +9,7 @@ import {
   RootNavigatorParamList,
 } from '../../../navigation';
 import {useAppDispatch, useAppSelector} from '../../../redux/hooks';
-import {cathPokemon} from '../../../redux';
+import {catchPokemon, releasePokemon} from '../../../redux';
 
 type UseHomeScreenValue = {
   data?: Pokemon[];
@@ -24,7 +24,8 @@ type UseHomeScreenValue = {
   typesLoading: boolean;
   typesError: boolean;
   onCatch: ({id}: CatchProps) => void;
-  catchedPokemon: string;
+  onRelease: ({id}: CatchProps) => void;
+  catchedPokemon: string[];
 };
 
 type NavigationProp = CompositeNavigationProp<
@@ -61,7 +62,14 @@ export const useHomeScreen = (): UseHomeScreenValue => {
 
   const onCatch = useCallback(
     ({id}: CatchProps) => {
-      dispatch(cathPokemon({catchedPokemon: id}));
+      dispatch(catchPokemon(id));
+    },
+    [dispatch],
+  );
+
+  const onRelease = useCallback(
+    ({id}: CatchProps) => {
+      dispatch(releasePokemon(id));
     },
     [dispatch],
   );
@@ -79,6 +87,7 @@ export const useHomeScreen = (): UseHomeScreenValue => {
     typesLoading,
     typesError,
     onCatch,
+    onRelease,
     catchedPokemon,
   };
 };

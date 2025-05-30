@@ -21,6 +21,7 @@ export const HomeScreen = (): JSX.Element => {
     typesLoading,
     typesError,
     onCatch,
+    onRelease,
     catchedPokemon,
   } = useHomeScreen();
 
@@ -74,13 +75,10 @@ export const HomeScreen = (): JSX.Element => {
         </View>
 
         <CommonSpacer multiplier={4} />
-        <Text>{catchedPokemon}</Text>
-        <CommonSpacer multiplier={4} />
         <View style={styles.dataContainer}>
           <View style={styles.dataContainerRow}>
             <Text>Name</Text>
             <Text>Status</Text>
-            <Text>Action</Text>
           </View>
           {data && (
             <FlatList
@@ -90,6 +88,8 @@ export const HomeScreen = (): JSX.Element => {
                   title={item.name}
                   onPress={() => navigateToDemoScreen(item.name)}
                   onCatch={onCatch}
+                  onRelease={onRelease}
+                  isCaught={catchedPokemon.includes(item.name)}
                 />
               )}
               keyExtractor={(item, index) => `${index}-${item.name}`}
