@@ -22,3 +22,7 @@ export type PokemonDetail = {
   };
   abilities: Ability[];
 };
+
+export type PokemonSliceState = {
+  catchedPokemon: string[];
+};

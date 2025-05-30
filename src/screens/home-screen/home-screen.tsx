@@ -1,6 +1,12 @@
-import {Picker} from '@react-native-picker/picker';
 import React, {JSX} from 'react';
-import {FlatList, SafeAreaView, Text, TextInput, View} from 'react-native';
+import {
+  FlatList,
+  Pressable,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import {globalStyles} from '../../assets';
 import {CommonSpacer} from '../../common-ui';
 import {Card} from './components/home-card';
@@ -16,13 +22,13 @@ export const HomeScreen = (): JSX.Element => {
     search,
     setSearch,
     selectedType,
-    setSelectedType,
     types,
     typesLoading,
     typesError,
     onCatch,
     onRelease,
     catchedPokemon,
+    handleTypeSelect,
   } = useHomeScreen();
 
   if (isLoading || typesLoading) {
@@ -57,21 +63,30 @@ export const HomeScreen = (): JSX.Element => {
             autoFocus={true}
           />
 
-          <CommonSpacer multiplier={2} />
-          <View style={styles.pickerContainer}>
-            <Picker
-              selectedValue={selectedType}
-              onValueChange={itemValue => setSelectedType(itemValue)}
-              style={styles.picker}>
-              {types.map(type => (
-                <Picker.Item
-                  key={type.name}
-                  label={type.name.charAt(0).toUpperCase() + type.name.slice(1)}
-                  value={type.name}
-                />
-              ))}
-            </Picker>
-          </View>
+          <CommonSpacer multiplier={4} />
+          <FlatList
+            data={[
+              {name: '', label: 'All Types'},
+              ...types.map(type => ({
+                ...type,
+                label: type.name.charAt(0).toUpperCase() + type.name.slice(1),
+              })),
+            ]}
+            renderItem={({item}) => (
+              <Pressable
+                style={[
+                  styles.typeChip,
+                  item.name === selectedType && styles.typeChipSelected,
+                ]}
+                onPress={() => handleTypeSelect(item.name)}>
+                <Text style={styles.typeChipText}>{item.label}</Text>
+              </Pressable>
+            )}
+            keyExtractor={item => item.name || 'all-types'}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.typeChipsContainer}
+          />
         </View>
 
         <CommonSpacer multiplier={4} />

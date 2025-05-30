@@ -19,13 +19,13 @@ type UseHomeScreenValue = {
   search: string;
   setSearch: (search: string) => void;
   selectedType: string;
-  setSelectedType: (type: string) => void;
   types: {name: string; url: string}[];
   typesLoading: boolean;
   typesError: boolean;
   onCatch: ({id}: CatchProps) => void;
   onRelease: ({id}: CatchProps) => void;
   catchedPokemon: string[];
+  handleTypeSelect: (type: string) => void;
 };
 
 type NavigationProp = CompositeNavigationProp<
@@ -74,6 +74,10 @@ export const useHomeScreen = (): UseHomeScreenValue => {
     [dispatch],
   );
 
+  const handleTypeSelect = (type: string) => {
+    setSelectedType(type);
+  };
+
   return {
     data,
     isError,
@@ -82,12 +86,12 @@ export const useHomeScreen = (): UseHomeScreenValue => {
     search,
     setSearch,
     selectedType,
-    setSelectedType,
     types: types || [],
     typesLoading,
     typesError,
     onCatch,
     onRelease,
     catchedPokemon,
+    handleTypeSelect,
   };
 };

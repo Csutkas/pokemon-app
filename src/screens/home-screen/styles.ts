@@ -78,6 +78,27 @@ const styles = StyleSheet.create({
     height: 40,
     fontSize: 16,
   },
+  typeChipsContainer: {
+    flexGrow: 0,
+    paddingVertical: 8,
+  },
+  typeChip: {
+    backgroundColor: colors.BACKGROUND_200,
+    borderWidth: 1,
+    borderColor: colors.ADDITIONAL_200,
+    borderRadius: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginRight: 8,
+  },
+  typeChipSelected: {
+    backgroundColor: colors.SECONDARY_200,
+    borderColor: colors.ADDITIONAL_200,
+  },
+  typeChipText: {
+    fontSize: 14,
+    color: colors.TEXT_800,
+  },
 });
 
 export default styles;
