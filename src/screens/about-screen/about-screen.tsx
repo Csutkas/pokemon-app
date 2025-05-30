@@ -14,6 +14,12 @@ export const AboutScreen = (): JSX.Element => {
             <CommonSpacer multiplier={6} />
             <Text style={globalStyles.titleText}>About screen</Text>
           </View>
+          <CommonSpacer multiplier={6} />
+          <Text style={styles.description}>
+            This application was built using React Native. It fetches data from
+            the PokePI to display information about different Pokemon types and
+            individual Pokémon.
+          </Text>
         </View>
       </View>
     </SafeAreaView>

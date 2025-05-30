@@ -1,9 +1,9 @@
 import {combineReducers, configureStore, StoreEnhancer} from '@reduxjs/toolkit';
 import reactotron from '../../ReactotronConfig';
-import profileSlice from './slices/pokemon-slice';
+import pokemonSlice from './slices/pokemon-slice';
 
 const rootReducer = combineReducers({
-  profile: profileSlice,
+  pokemon: pokemonSlice,
 });
 
 export const store = configureStore({

@@ -4,16 +4,16 @@ import {PokemonSliceState} from '../../models';
 
 const initialState: PokemonSliceState = {catchedPokemon: ''};
 
-const profileSlice = createSlice({
+const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState,
   reducers: {
-    updateProfile: (state, action: PayloadAction<{catchedPokemon: string}>) => {
+    cathPokemon: (state, action: PayloadAction<{catchedPokemon: string}>) => {
       const {catchedPokemon} = action.payload;
       state.catchedPokemon = catchedPokemon;
     },
   },
 });
 
-export const {updateProfile} = profileSlice.actions;
-export default profileSlice.reducer;
+export const {cathPokemon} = pokemonSlice.actions;
+export default pokemonSlice.reducer;

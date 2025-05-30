@@ -1,10 +1,12 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../assets';
+import {StyleSheet} from 'react-native';
+import {colors, fonts} from '../../assets';
+import {SCREEN_DEFAULT_HORIZONTAL_PADDING} from '../../utils';
 
 const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
     justifyContent: 'space-between',
+    paddingHorizontal: SCREEN_DEFAULT_HORIZONTAL_PADDING,
   },
   imageContainer: {
     alignItems: 'center',

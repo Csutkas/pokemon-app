@@ -1,5 +1,5 @@
 export const API_BASE_URL = 'https://pokeapi.co/api/v2';
-export const SCREEN_DEFAULT_HORIZONTAL_PADDING = 24;
+export const SCREEN_DEFAULT_HORIZONTAL_PADDING = 16;
 
 export const RADIUS_4 = 4;
 export const RADIUS_8 = 8;

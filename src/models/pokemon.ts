@@ -1,10 +1,16 @@
 export type Pokemon = {
   name: string;
+  type: string;
+  url: string;
+};
+
+export type PokemonType = {
+  name: string;
   url: string;
 };
 
 export type Ability = {
-  ability: { name: string; url: string };
+  ability: {name: string; url: string};
 };
 
 export type PokemonDetail = {
