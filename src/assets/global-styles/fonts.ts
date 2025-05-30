@@ -1,0 +1,133 @@
+import { StyleSheet } from 'react-native';
+
+export const fonts = StyleSheet.create({
+  /* TYPOGRAPHY - TITLE */
+  TITLE_XL: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 38,
+    lineHeight: 38,
+    letterSpacing: 0,
+  },
+  TITLE_L_BOLD: {
+    fontFamily: 'Roboto',
+    fontWeight: '700',
+    fontSize: 32,
+    lineHeight: 32,
+    letterSpacing: 0,
+  },
+  TITLE_L_MEDIUM: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 32,
+    lineHeight: 32,
+    letterSpacing: 0,
+  },
+  TITLE_M_BOLD: {
+    fontFamily: 'Roboto',
+    fontWeight: '700',
+    fontSize: 28,
+    lineHeight: 28,
+    letterSpacing: 0,
+  },
+  TITLE_M_MEDIUM: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 28,
+    lineHeight: 28,
+    letterSpacing: 0,
+  },
+
+  /* TYPOGRAPHY - BODY */
+  BODY_LARGE_BOLD: {
+    fontFamily: 'Roboto',
+    fontWeight: '700',
+    fontSize: 20,
+    lineHeight: 24,
+    letterSpacing: 0,
+  },
+  BODY_LARGE_MEDIUM: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 20,
+    lineHeight: 24,
+    letterSpacing: 0,
+  },
+  BODY_LARGE_REGULAR: {
+    fontFamily: 'Roboto',
+    fontWeight: '400',
+    fontSize: 20,
+    lineHeight: 24,
+    letterSpacing: 0,
+  },
+  BODY_NORMAL_BOLD: {
+    fontFamily: 'Roboto',
+    fontWeight: '700',
+    fontSize: 16,
+    lineHeight: 18,
+    letterSpacing: 0,
+  },
+  BODY_NORMAL_MEDIUM: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 16,
+    lineHeight: 18,
+    letterSpacing: 0,
+  },
+  BODY_NORMAL_REGULAR: {
+    fontFamily: 'Roboto',
+    fontWeight: '400',
+    fontSize: 16,
+    lineHeight: 18,
+    letterSpacing: 0,
+  },
+  BODY_SMALL_BOLD: {
+    fontFamily: 'Roboto',
+    fontWeight: '700',
+    fontSize: 14,
+    lineHeight: 16,
+    letterSpacing: 0,
+  },
+  BODY_SMALL_MEDIUM: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 16,
+    letterSpacing: 0,
+  },
+  BODY_SMALL_REGULAR: {
+    fontFamily: 'Roboto',
+    fontWeight: '400',
+    fontSize: 14,
+    lineHeight: 16,
+    letterSpacing: 0,
+  },
+  BODY_TINY_BOLD: {
+    fontFamily: 'Roboto',
+    fontWeight: '700',
+    fontSize: 12,
+    lineHeight: 14,
+    letterSpacing: 0,
+  },
+  BODY_TINY_MEDIUM: {
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    fontSize: 12,
+    lineHeight: 14,
+    letterSpacing: 0,
+  },
+  BODY_TINY_REGULAR: {
+    fontFamily: 'Roboto',
+    fontWeight: '400',
+    fontSize: 12,
+    lineHeight: 14,
+    letterSpacing: 0,
+  },
+  BODY_VERY_TINY_REGULAR: {
+    fontFamily: 'Roboto',
+    fontWeight: '400',
+    fontSize: 10,
+    lineHeight: 14,
+    letterSpacing: 0,
+  },
+});
