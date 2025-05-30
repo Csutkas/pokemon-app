@@ -1,7 +1,7 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 export type RootNavigatorParamList = {
-  DemoRoute: {name: string};
+  DetailsRoute: {name: string};
   HomeNavigatorRoute: NavigatorScreenParams<HomeNavigatorParamList>;
 };
 export type RootNavigatorRouteName = keyof RootNavigatorParamList;

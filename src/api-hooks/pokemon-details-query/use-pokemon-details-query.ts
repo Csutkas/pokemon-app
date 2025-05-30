@@ -1,16 +1,19 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
+import {useQuery, UseQueryResult} from '@tanstack/react-query';
 import axios from 'axios';
 
-import { PokemonDetail } from '../../models';
-import { QUERY_KEYS } from '../query-keys';
+import {PokemonDetail} from '../../models';
+import {QUERY_KEYS} from '../query-keys';
+import {API_BASE_URL} from '../../utils';
 
 interface PokemonDetailsProp {
   name?: string;
 }
-export const usePokemonDetailsQuery = ({ name }: PokemonDetailsProp): UseQueryResult<PokemonDetail, unknown> => {
+export const usePokemonDetailsQuery = ({
+  name,
+}: PokemonDetailsProp): UseQueryResult<PokemonDetail, unknown> => {
   const headers = {
     'Content-Type': 'application/json',
-    'x-api-key': `${process.env.API_KEY}`,
+    'x-api-key': 'DEMO',
   };
 
   return useQuery({
@@ -19,9 +22,11 @@ export const usePokemonDetailsQuery = ({ name }: PokemonDetailsProp): UseQueryRe
       if (!name) {
         throw new Error('Name is required');
       }
-      return await axios.get(`${process.env.API_URL}/pokemon/${name}`, { headers: headers });
+      return await axios.get(`${API_BASE_URL}/pokemon/${name}`, {
+        headers: headers,
+      });
     },
-    select: (response) => {
+    select: response => {
       return response.data;
     },
   });
