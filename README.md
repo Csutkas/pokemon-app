@@ -1,97 +1,94 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Pokemon Catch App
 
-# Getting Started
+A React Native mobile application that allows users to browse, filter, catch, and release Pokémon using the PokeAPI. The app features a searchable Pokémon list, type-based filtering with pressable chips, and persistent storage of caught Pokémon using Redux and redux-persist.
+Features
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Browse Pokémon: View a list of Pokémon fetched from PokeAPI.
+Search: Filter Pokémon by name using a search input with a clear button.
+Type Filtering: Filter Pokémon by type using pressable chips (e.g., Fire, Water, All Types).
+Catch/Release: Catch or release Pokémon, with status displayed in the list.
+Persistent Storage: Caught Pokémon are saved across app reloads using redux-persist with AsyncStorage.
+Navigation: Tap a Pokémon to view details (navigation setup assumed).
 
-## Step 1: Start Metro
+## Tech Stack
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+React Native: Mobile app framework.
+TypeScript: Type-safe JavaScript.
+Redux Toolkit: State management with redux-persist for persistence.
+React Navigation: Navigation between screens.
+React Query (TanStack Query): Data fetching and caching.
+PokeAPI: Public API for Pokémon data.
+React Native Vector Icons: Icons for UI elements.
+AsyncStorage: Persistent storage for Redux state.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Prerequisites
 
-```sh
-# Using npm
-npm start
+Node.js (v16 or later)
+npm
+React Native CLI
+Android Studio or Xcode for emulators
+Reactotron (optional, for debugging in development)
 
-# OR using Yarn
-yarn start
-```
+## Setup
 
-## Step 2: Build and run your app
+Clone the Repository:
+git clone
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Install Dependencies:
+npm install
 
-### Android
+Install iOS Pods (for iOS):
+cd ios && pod install && cd ..
 
-```sh
-# Using npm
-npm run android
+Configure Reactotron (optional, for debugging):
 
-# OR using Yarn
-yarn android
-```
+Ensure ReactotronConfig.ts is set up (included in the project).
+Install the Reactotron desktop app and connect in development mode.
 
-### iOS
+Run the App:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Run on iOS: npm runios
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Run on Android: npm run android
 
-```sh
-bundle install
-```
+## Usage
 
-Then, and every time you update your native dependencies, run:
+### Browse Pokémon:
 
-```sh
-bundle exec pod install
-```
+The home screen displays a list of Pokémon fetched from PokeAPI.
+Scroll through the list or use the search bar to filter by name.
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Filter by Type:
 
-```sh
-# Using npm
-npm run ios
+Tap a type chip (e.g., “Fire”, “Water”, “All Types”) to filter Pokémon by type.
+“All Types” resets the type filter.
 
-# OR using Yarn
-yarn ios
-```
+### Catch/Release Pokémon:
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Each Pokémon card shows its name, status (“Caught” or “Not Caught”), and a “Catch” or “Release” button.
+Tap “Catch” to add a Pokémon to your caught list.
+Tap “Release” to remove a caught Pokémon.
+Caught Pokémon are displayed at the top of the screen and persist after app reloads.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### View Details:
 
-## Step 3: Modify your app
+Tap a Pokémon’s name to navigate to its details screen (assumes navigation setup).
 
-Now that you have successfully run the app, let's make changes!
+## Project Structure
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+src/
+api-hooks/: React Query hooks for fetching Pokémon and types.
+assets/: Global styles and assets.
+common-ui/: Reusable UI components (e.g., CommonSpacer).
+models/: TypeScript interfaces (e.g., Pokemon, PokemonSliceState).
+navigation/: React Navigation setup.
+redux/: Redux store, slices, and hooks.
+screens/: Screen components (e.g., HomeScreen).
+home/: Home screen components, hooks, and styles.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## Notes
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+API: Uses https://pokeapi.co/api/v2/pokemon and https://pokeapi.co/api/v2/type. Ensure internet access for data fetching.
+Persistence: Caught Pokémon are stored in AsyncStorage via redux-persist. Clear storage with AsyncStorage.clear() for debugging.
+Debugging: Use Reactotron or console logs to inspect state and API responses (e.g., Types Response in api-hooks).
+Type Chips: Replaced the native Picker with pressable chips for a modern UI. Chips are scrollable horizontally.
